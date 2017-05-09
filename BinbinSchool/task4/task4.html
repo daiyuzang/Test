@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>IFE JavaScript Task 04</title>
+	<style type="text/css">
+	button{
+		background: white;
+		border: 1px solid grey;
+		border-radius: 5px 5px;
+		cursor: pointer;
+	}
+	ul{
+		margin-top: 20px;
+		padding-left: 0;
+	}
+	ul li{
+		background: red;
+		width: auto;
+		padding: 10px;
+		display: inline;
+		list-style: none;
+		margin-right: 10px;
+	}
+	</style>
+</head>
+<body>
+	<input id="input_num" type="text" name="number" />
+	<button id="left_in">左侧入</button>
+	<button id="right_in">右侧入</button>
+	<span>&nbsp;&nbsp;</span>
+	<button id="left_out">左侧出</button>
+	<button id="right_out">右侧出</button>
+	<ul id="list">
+		<!--
+			添加每一个输入的数字到ul内
+		-->
+	</ul>
+</body>
+<script type="text/javascript">
+	var EventUtil = {
+		addEvent:function(element,event,handler){
+			if(element.addEventListener)
+				element.addEventListener(event, handler, false);
+			else if(element.attachEvent)
+				element.attachEvent("on" + event, handler);
+			else
+				element["on" + event] = handler;
+		}
+
+	}
+	function handler(){
+		var li = document.createElement("li");
+		number = document.createTextNode(input_num.value);
+		if (isNaN(input_num.value)) {
+			alert("请输入数字！");
+		}
+		else{
+				li.appendChild(number);
+			if(this.id == "right_in"){
+				ul_li.appendChild(li);
+			}
+			else if(this.id == "left_in"){
+				if(ul_li.hasChildNodes()){
+					ul_li.insertBefore(li, ul_li.firstChild);
+				}
+				else{
+					ul_li.appendChild(li);
+				}
+			}
+			else if(this.id == "right_out"){
+				if(ul_li.hasChildNodes()){
+					ul_li.removeChild(ul_li.lastChild);
+				}
+				else{
+					alert("没有内容，无法移除！");
+				}
+			}
+			else if (this.id == "left_out") {
+				if (ul_li.hasChildNodes()) {
+					ul_li.removeChild(ul_li.firstChild);
+				}
+				else{
+					alert("没有内容，无法移除！");
+				}
+			}
+		}
+		
+	}
+	var input_num = document.getElementById("input_num");
+	var ul_li = document.getElementById("list");
+	var left_in,right_in,left_out,right_out;
+	var text,li,number;
+	left_in = document.getElementById("left_in");
+	right_in = document.getElementById("right_in");
+	left_out = document.getElementById("left_out");
+	right_out = document.getElementById("right_out");
+	EventUtil.addEvent(left_in,"click",handler);
+	EventUtil.addEvent(right_in,"click",handler);
+	EventUtil.addEvent(left_out,"click",handler);
+	EventUtil.addEvent(right_out,"click",handler);
+</script>
+</html>
