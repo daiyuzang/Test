@@ -21,6 +21,7 @@
 		display: inline;
 		list-style: none;
 		margin-right: 10px;
+		cursor: pointer;
 	}
 	</style>
 </head>
@@ -84,6 +85,9 @@
 					alert("没有内容，无法移除！");
 				}
 			}
+			else{
+				ul_li.removeChild(event.target);
+			}
 		}
 		
 	}
@@ -99,5 +103,6 @@
 	EventUtil.addEvent(right_in,"click",handler);
 	EventUtil.addEvent(left_out,"click",handler);
 	EventUtil.addEvent(right_out,"click",handler);
+	EventUtil.addEvent(ul_li,"click",handler);
 </script>
 </html>
