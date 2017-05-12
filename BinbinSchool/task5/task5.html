@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>IFE JavaScript Task 04</title>
+	<style type="text/css">
+	button{
+		background: white;
+		border: 1px solid grey;
+		border-radius: 5px 5px;
+		cursor: pointer;
+	}
+	ul{
+		margin: 20px;
+		height: auto;
+		width: 100%;
+		padding-left: 0;
+	}
+	ul li{
+		background: red;
+		width: 20px;
+		margin: 5px;
+		display: inline-block;
+		list-style: none;
+		margin: 20px;
+		cursor: pointer;
+		bottom: 0px;
+		position: relative;
+	}
+	li:hover{
+		background: grey;
+	}
+	</style>
+</head>
+<body>
+	<input id="input_num" type="text" name="number" />
+	<button id="left_in">左侧入</button>
+	<button id="right_in">右侧入</button>
+	<span>&nbsp;&nbsp;</span>
+	<button id="left_out">左侧出</button>
+	<button id="right_out">右侧出</button>
+	<ul id="list">
+		<!--
+			添加每一个输入的数字到ul内
+		-->
+	</ul>
+	<button id="sort">排序</button>
+</body>
+<script type="text/javascript">
+	var EventUtil = {
+		addEvent:function(element,event,handler){
+			if(element.addEventListener)
+				element.addEventListener(event, handler, false);
+			else if(element.attachEvent)
+				element.attachEvent("on" + event, handler);
+			else
+				element["on" + event] = handler;
+		}
+
+	}
+	function handler(){
+		var li = document.createElement("li");
+			//console.log(input_num.value);
+		if (isNaN(input_num.value)) {
+			alert("请输入数字！");
+		}
+		else if(input_num.value <= 0 || input_num.value > 200){
+			alert("请输入大于零且小于200的数字");
+			//console.log(input_num.value);
+		}
+		else{
+			//console.log(input_num.value);
+			li.style.height = input_num.value + "px";
+			if(this.id == "right_in"){
+				ul_li.appendChild(li);
+			}
+			else if(this.id == "left_in"){
+				if(ul_li.hasChildNodes()){
+					ul_li.insertBefore(li, ul_li.firstChild);
+				}
+				else{
+					ul_li.appendChild(li);
+				}
+			}
+			else if(this.id == "right_out"){
+				if(ul_li.hasChildNodes()){
+					ul_li.removeChild(ul_li.lastChild);
+				}
+				else{
+					alert("没有内容，无法移除！");
+				}
+			}
+			else if (this.id == "left_out") {
+				if (ul_li.hasChildNodes()) {
+					ul_li.removeChild(ul_li.firstChild);
+				}
+				else{
+					alert("没有内容，无法移除！");
+				}
+			}
+			else if(this.id == "sort"){
+				var list = [];
+				var li = document.getElementsByTagName("li");
+				for (var i = 0; i < ul_li.childNodes.length; i++) {
+					(function(i){
+						if(ul_li.childNodes[i].tagName == "LI"){
+							list[i] = ul_li.childNodes[i].clientHeight;
+						//console.log(list[i]);
+						}
+					})(i)
+				}
+				list.sort(function(value1,value2){
+					return value1 - value2;
+				});
+				//console.log(list);
+				for (var i = 0; i < ul_li.childNodes.length; i++) {
+					(function(i){
+						if(ul_li.childNodes[i].tagName == "LI"){
+							li[i].style.height = list[i] + "px";
+						//console.log(li[i].style.height);
+						}
+					})(i)
+				}
+			}
+			else{
+				ul_li.removeChild(event.target);
+			}
+		}
+		
+	}
+	var input_num = document.getElementById("input_num");
+	var ul_li = document.getElementById("list");
+	var left_in,right_in,left_out,right_out,sortbtn;
+	var text,li,number;
+	left_in = document.getElementById("left_in");
+	right_in = document.getElementById("right_in");
+	left_out = document.getElementById("left_out");
+	right_out = document.getElementById("right_out");
+	sortbtn = document.getElementById("sort");
+	EventUtil.addEvent(left_in,"click",handler);
+	EventUtil.addEvent(right_in,"click",handler);
+	EventUtil.addEvent(left_out,"click",handler);
+	EventUtil.addEvent(right_out,"click",handler);
+	EventUtil.addEvent(ul_li,"click",handler);
+	EventUtil.addEvent(sortbtn,"click",handler);
+</script>
+</html>
