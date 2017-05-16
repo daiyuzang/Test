@@ -101,13 +101,13 @@
 						//console.log(txt_value);
 			var liNodes = document.getElementsByTagName("li");
 			for(var i = 0; i < liNodes.length; i++){
-						console.log(txt_value);
-						console.log(value);
+						//console.log(txt_value);
+						//console.log(value);
 				(function(i){
-						console.log(value.indexOf(txt_value));
 						var context = liNodes[i].innerHTML;
-					if (value.indexOf(txt_value) > -1) {
-						console.log(liNodes[i]);
+						//console.log(context);
+					if (context.indexOf(txt_value) > -1) {
+						//console.log(liNodes[i]);
 						liNodes[i].innerHTML = context.fontcolor("blue");
 					}
 				})(i)
