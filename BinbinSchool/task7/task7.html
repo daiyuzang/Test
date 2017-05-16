@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>IFE JavaScript Task 07</title>
+	<style type="text/css">
+		div{
+			border: 1px solid blue;
+		}
+		.main{
+			width: 1200px;
+			height: 600px;
+			margin: auto;
+		}
+		.first{
+			float: left;
+			width: 550px;
+			height: 400px;
+			margin: 100px 24px;
+		}
+		.second{
+			float: left;
+			width: 250px;
+			height: 200px;
+			margin: 100px 11px;
+			overflow: auto;
+		}
+		.third{
+			float: left;
+			width: 100px;
+			height: 70px;
+			margin: 60px 10px;
+		}
+		#control{
+			border: 0px;
+			width: 1200px;
+			height: 60px;
+			margin: auto;
+			text-align: center;
+			padding: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="first">
+			<div class="second">
+				<div class="third"></div>
+				<div class="third"></div>
+			</div>
+			<div class="second">
+				<div class="third"></div>
+				<div class="third"></div>
+			</div>
+		</div>
+		<div class="first">
+			<div class="second">
+				<div class="third"></div>
+				<div class="third"></div>
+			</div>
+			<div class="second">
+				<div class="third"></div>
+				<div class="third"></div>
+			</div>
+		</div>
+	</div>
+	<div id="control">
+		<button id="preOrder">先序遍历</button>
+		<button id="inOrder">中序遍历</button>
+		<button id="postOrder">后序遍历</button>
+	</div>
+</body>
+<script type="text/javascript">
+	var EventUtil = {
+		addListener:function(element,type,handler){
+			if (element.addEventLister) 
+				element.addEventListener(type,handler,false);
+			else if (element.attachEvent)
+				element.attachEvent("on" + type, handler);
+			else
+				element["on" + type] = handler;
+		}
+	}
+	var preOrder = document.getElementById("preOrder");
+	var inOrder = document.getElementById("inOrder");
+	var postOrder = document.getElementById("postOrder");
+</script>
+</html>
