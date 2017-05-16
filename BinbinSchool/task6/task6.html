@@ -11,6 +11,10 @@
 		border-radius: 10px;
 		scroll-behavior: auto;
 	}
+	input{
+		border-radius: 5px;
+		border: 1px solid black;
+	}
 	button{
 		background: white;
 		border: 1px solid grey;
@@ -45,7 +49,7 @@
 		-->
 	</ul>
 	<input id="txt" type="text" name="search" />
-	<button>查询</button>
+	<button id="search">查询</button>
 </body>
 <script type="text/javascript">
 	var EventUtil = {
@@ -92,6 +96,24 @@
 				alert("没有内容，无法移除！");
 			}
 		}
+		else if(this.id == "search"){
+			var txt_value = txt.value;
+						//console.log(txt_value);
+			var liNodes = document.getElementsByTagName("li");
+			for(var i = 0; i < liNodes.length; i++){
+						console.log(txt_value);
+						console.log(value);
+				(function(i){
+						console.log(value.indexOf(txt_value));
+						var context = liNodes[i].innerHTML;
+					if (value.indexOf(txt_value) > -1) {
+						console.log(liNodes[i]);
+						liNodes[i].innerHTML = context.fontcolor("blue");
+					}
+				})(i)
+				
+			}
+		}
 		else{
 			ul_li.removeChild(event.target);
 		}
@@ -114,16 +136,19 @@
 
 	var input_num = document.getElementById("text_input");
 	var ul_li = document.getElementById("list");
-	var left_in,right_in,left_out,right_out;
+	var txt = document.getElementById("txt");
+	var left_in,right_in,left_out,right_out,search;
 	var text,li,number;
 	left_in = document.getElementById("left_in");
 	right_in = document.getElementById("right_in");
 	left_out = document.getElementById("left_out");
 	right_out = document.getElementById("right_out");
+	search = document.getElementById("search");
 	EventUtil.addEvent(left_in,"click",handler);
 	EventUtil.addEvent(right_in,"click",handler);
 	EventUtil.addEvent(left_out,"click",handler);
 	EventUtil.addEvent(right_out,"click",handler);
 	EventUtil.addEvent(ul_li,"click",handler);
+	EventUtil.addEvent(search,"click",handler);
 </script>
 </html>
