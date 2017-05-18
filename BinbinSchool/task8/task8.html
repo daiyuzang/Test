@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>IFE JavaScript Task 08</title>
+	<style type="text/css">
+		div{
+			border: 1px solid grey;
+		}
+		.main{
+			width: 1350px;
+			height: 300px;
+		}
+		.first{
+			width: 560px;
+			margin: 10px 10px;
+			float: left;
+			height: 280px;
+		}
+		.flash{
+			width: 80px;
+			margin: 10px 10px;
+			float: left;
+			height: 280px;
+		}
+		.second{
+			width: 25%;
+			margin: 10px 10px;
+			float: left;
+			height: 260px;
+		}
+		.third{
+			width: 20%;
+			margin: 10px 10px;
+			float: left;
+			height: 100px;
+		}
+		.program{
+			width: 300px;
+			margin: 10px 10px;
+			float: left;
+			height: 260px;
+		}
+		.bement{
+			width: 100px;
+			margin: 10px 10px;
+			float: left;
+			height: 240px;
+		}
+		.forth{
+			width: 80px;
+			height: 200px;
+			float: left;
+			margin: 10px 10px;
+		}
+		#control{
+			border: 0px;
+			width: 1200px;
+			height: 60px;
+			margin: auto;
+			text-align: center;
+			padding: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">super
+		<div class="first">Car
+			<div class="second">Apple
+				<div class="third">Pear</div>
+				<div class="third">Pig</div>
+				<div class="third">Cola</div>
+				<div class="third">Soccer</div>
+			</div>
+			<div class="second">Phone</div>
+			<div class="second">
+				<div class="third">Book</div>
+				<div class="third">School</div>
+			</div>
+		</div>
+		<div class="first">Note
+			<div class="second">Human
+				<div class="third">Code</div>
+				<div class="third">Operate</div>
+				<div class="third">Mon</div>
+			</div>
+			<div class="program">Program
+				<div class="bement">Bement
+					<div class="forth">Cat</div>
+				</div>
+				<div class="third">Glass</div>
+			</div>
+		</div>
+		<div class="flash">Flash</div>
+	</div>
+	<div id="control">
+		<button id="preOrder">先序遍历</button>
+		<button id="postOrder">后序遍历</button>
+		<input type="text" name="查询" id="txt" />
+		<button id="Search">查询</button>
+	</div>
+	
+</body>
+<script type="text/javascript">
+	var EventUtil = {
+		addListener:function(element,type,handler){
+			if(element.addEventListener)
+				element.addEventListener(type,handler,false);
+			else if(element.attachEvent)
+				element.attachEvent("on" + type,handler);
+			else
+				element["on" + type] = handler;
+		}
+	};
+	var time = 0;
+	var showNode = function(node){
+		node.style.backgroundColor = "white";
+		setTimeout(function(){
+			node.style.backgroundColor = "red";
+		}, time += 500);
+		setTimeout(function(){
+			node.style.backgroundColor = "white"
+		}, time += 500);
+	};
+	var nodes = [];
+	var PreOrderNode = function(node){
+		if (node) {
+			showNode(node);
+			nodes.push(node);
+			//console.log(node.children);
+			for(var i = 0; i < node.children.length; i++){
+				PreOrderNode(node.children[i]);
+			}
+		}
+		console.log(nodes);
+	};
+	var PostOrderNode = function(node){
+		if (node) {
+			for(var i = 0; i < node.children.length; i++){
+				PostOrderNode(node.children[i]);
+			}
+			showNode(node);
+		}
+	}
+	var Search = function(node){
+		var txt_value = txt.value;
+		console.log(txt_value);
+		if (node.innerHTML !== txt_value) {
+			showNode(node);
+			for(var i = 0; i < node.children.length; i++){
+				Search(node.children[i]);
+			}
+		}
+		else if(node.innerHTML === txt_value)
+			node.style.backgroundColor = "yellow";
+		else
+			alert("没有！");
+	}
+	var preOrder = document.getElementById("preOrder");
+	var postOrder = document.getElementById("postOrder");
+	var rood = document.getElementsByClassName("main")[0];
+	var txt = document.getElementById("txt");
+	var search = document.getElementById("Search");
+	EventUtil.addListener(preOrder,"click",function(){
+		PreOrderNode(rood);
+	});
+	EventUtil.addListener(postOrder,"click",function(){
+		PostOrderNode(rood);
+	});
+	EventUtil.addListener(search,"click",function(){
+		Search(rood);
+	})
+</script>
+</html>
