@@ -4,8 +4,9 @@
 	<meta charset="UTF-8">
 	<title>IFE JavaScript Task 08</title>
 	<style type="text/css">
-		div{
+	div{
 			border: 1px solid grey;
+			background:white;
 		}
 		.main{
 			width: 1350px;
@@ -60,8 +61,7 @@
 			margin: auto;
 			text-align: center;
 			padding: 30px;
-		}
-	</style>
+		}	</style>
 </head>
 <body>
 	<div class="main">super
@@ -125,36 +125,86 @@
 	var nodes = [];
 	var PreOrderNode = function(node){
 		if (node) {
-			showNode(node);
+			//showNode(node);
 			nodes.push(node);
 			//console.log(node.children);
 			for(var i = 0; i < node.children.length; i++){
 				PreOrderNode(node.children[i]);
 			}
 		}
-		console.log(nodes);
+		//console.log(nodes);
+	};
+	var PreOrder = function(node){
+		nodes = [];
+		var i = 0;
+		PreOrderNode(node);
+		//console.log(nodes);
+		function Pre(){
+			if (nodes[i - 1]) {
+				nodes[i - 1].style.backgroundColor = "white";
+			}
+			if (nodes.length == i) {
+				clearInterval(setInter);
+				return false;
+			}
+			nodes[i].style.backgroundColor = "blue";
+			i++;
+		}
+		var setInter = setInterval(Pre, 1000);
+
 	};
 	var PostOrderNode = function(node){
 		if (node) {
 			for(var i = 0; i < node.children.length; i++){
 				PostOrderNode(node.children[i]);
 			}
-			showNode(node);
+			//showNode(node);
+			nodes.push(node);
 		}
-	}
+	};
+	var PostOrder = function(node){
+		nodes = [];
+		var i = 0;
+		PostOrderNode(node);
+		function Post(){
+			if (nodes[i - 1]) {
+				nodes[i - 1].style.backgroundColor = "white";
+			}
+			if (nodes.length == i) {
+				clearInterval(setInter);
+				return false;
+			}
+			nodes[i].style.backgroundColor = "blue";
+			i++;
+		}
+		var setInter = setInterval(Post, 500);
+	};
 	var Search = function(node){
 		var txt_value = txt.value;
+		nodes = [];
 		console.log(txt_value);
-		if (node.innerHTML !== txt_value) {
-			showNode(node);
-			for(var i = 0; i < node.children.length; i++){
-				Search(node.children[i]);
+		PreOrderNode(node);//将node全部压栈进nodes
+		console.log(nodes);
+		var i = 0,searched = 0;
+		function onPre(){
+			if (nodes[i - 1] && nodes[i - 1].style.backgroundColor == "blue") {
+				nodes[i - 1].style.backgroundColor = "white";
 			}
+			if (nodes.length == i) {
+				clearInterval(setInter);
+				if (searched == 0) {
+					alert("没有找到！");
+				}
+				return false;
+			}
+			nodes[i].style.backgroundColor = "blue";
+			if (nodes[i].firstChild && txt_value && nodes[i].firstChild.nodeValue.indexOf(txt_value) > -1) {
+				nodes[i].style.backgroundColor = "red";
+				searched = 1;
+			}
+			i++;
 		}
-		else if(node.innerHTML === txt_value)
-			node.style.backgroundColor = "yellow";
-		else
-			alert("没有！");
+		var setInter = setInterval(onPre,1000);
 	}
 	var preOrder = document.getElementById("preOrder");
 	var postOrder = document.getElementById("postOrder");
@@ -162,13 +212,14 @@
 	var txt = document.getElementById("txt");
 	var search = document.getElementById("Search");
 	EventUtil.addListener(preOrder,"click",function(){
-		PreOrderNode(rood);
+		PreOrder(rood);
+		//console.log(nodes);
 	});
 	EventUtil.addListener(postOrder,"click",function(){
-		PostOrderNode(rood);
+		PostOrder(rood);
 	});
 	EventUtil.addListener(search,"click",function(){
-		Search(rood);
-	})
+		Search(rood);//先序遍历查询
+	});
 </script>
 </html>
