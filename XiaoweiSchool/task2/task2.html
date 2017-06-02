@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>零基础HTML及CSS编码(1)</title>
+</head>
+<style type="text/css">
+	body{
+		font-family: cursive;
+		padding: 0;
+		margin: 0;
+	}
+	header{
+		height: 65px;
+		width: 100%;
+		background: rgb(42,51,51);
+	}
+	#left{
+		float: left;
+		margin-left: 5px;
+		padding-top: 5px;
+	}
+	#right{
+		float: right;
+		margin-right: 50px;
+		height: 65px;
+	}
+	#right ul{
+		display: inline-block;
+	}
+	#right ul li{
+		float: left;
+		margin-right: 20px;
+	}
+	#right ul li a{
+		color: white;
+		text-decoration: none;
+	}
+	.article1{
+		padding: 1px;
+		background: rgb(222,222,222);
+	}
+	.article1 div{
+		margin-top: 20px;
+		margin-left: 20px;
+		margin-right: 20px;
+		padding-bottom: 0px;
+		background: white;
+	}
+	.context{
+		padding-top: 20px; 
+	}
+	.context p:nth-child(4){
+		text-indent: 2em;
+	}
+	.context p:nth-child(6){
+		text-indent: 2em;
+		padding-bottom: 30px;
+		margin-bottom: 0px;
+	}
+	.context ul{
+		padding-left: 20px;
+		list-style: none;
+		padding-bottom: 30px;
+		margin-bottom: 0px;
+	}
+	.picture{
+		height: 200px;
+		width: 170px;
+		border: 2px solid black;
+	}
+	.picture p{
+		text-align: center;
+		margin: 0px;
+	}
+	.picture img{
+		height: 170px;
+		width: 170px;
+	}
+	.context div{
+		padding-bottom: 30px;
+		margin-bottom: 0px;
+	}
+	ol{
+		list-style-position: inside;
+	}
+	.table_1{
+		width: 100%;
+		border: 1px solid grey;
+		border-collapse: collapse;
+	}
+	.table_1 td{
+		border: 1px solid grey;
+		border-collapse: collapse;
+	}
+	.table_1 tr:last-child{
+		background: rgb(204,204,204);
+		font-weight: bold;
+	}
+	.table_1 tr:last-child td{
+		border: 0px;
+	}
+	.table_1 th{
+		background: black;
+		color: white;
+	}
+	.square{
+		float: left;
+		display: inline-block;
+		width: 3px;
+		height: 40px;
+		background: rgb(202,202,202);
+	}
+	.title{
+		margin-top:5px;
+		margin-left: 15px;
+	}
+	.input_1{
+		width: 100%;
+	}
+	.input_1 tr td{
+		padding-bottom: 10px;
+	}
+	.input_1 tr td:first-child{
+		float: right;
+	}
+</style>
+<body>
+	<header>
+		<div id="left">
+			<img src="log1.jpg" />
+		</div>
+		<div id="right">
+			<ul>
+				<li><a href="">导航链接一</a></li>
+				<li><a href="">导航链接二</a></li>
+				<li><a href="">导航链接三</a></li>
+				<li><a href="">导航链接四</a></li>
+			</ul>
+		</div>
+	</header>
+	<div class="article1">
+		<div>
+			<div class="context">
+				<h2>文章一级标题</h2>
+				<h3>文章二级标题</h3>
+				<p>文章作者 文章发表时间</p>
+				<p class="contain">这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，换行了<br/>这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，换行了<br/>这个是一个很长很长的段落，这个是一个很长很长的段落，<a href="">这里有一个链接链接到http://ife.baidu.com</a>这个是一个很长很长的段落，这个是一个很长很长的段落，<b>这里有个粗体字</b>这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落。</p>
+				<img src="1.jpg" />
+				<p>这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，换行了<br/>这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，<b>这里有个粗体字</b>这个是一个很长很长的段落，这个是一个很长很长的段落，<a href="">这里有一个链接点击后打开新窗口链接到http://ife.baidu.com</a>这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落。</p>
+			</div>
+		</div>
+	</div>
+	<div class="article1">
+		<div>
+			<div class="context">
+				<h2>另一篇文章一级标题</h2>
+				<h3>文章二级标题</h3>
+				<p>文章作者 文章发表时间</p>
+				<p>这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，换行了<br/>这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，换行了<br/>这个是一个很长很长的段落，这个是一个很长很长的段落，<a href="">这里有一个链接链接到http://ife.baidu.com</a>这个是一个很长很长的段落，这个是一个很长很长的段落，<b>这里有个粗体字</b>这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落，这个是一个很长很长的段落。</p>
+				<img src="1.jpg" />
+				<ul>
+					<li>列表项目一</li>
+					<li>列表项目二</li>
+					<li>列表项目三</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="article1">
+		<div>
+			<div class="context">
+				<h2>图片</h2>
+				<ul id="ul_style">
+					<li><div class="picture"><p>好看的图片</p><img src="1.jpg"></div></li>
+					<li><div class="picture"><p>好看的图片</p><img src="1.jpg"></div></li>
+					<li><div class="picture"><p>好看的图片</p><img src="1.jpg"></div></li>
+					<li><div class="picture"><p>好看的图片</p><img src="1.jpg"></div></li>
+					<li><div class="picture"><p>好看的图片</p><img src="1.jpg"></div></li>
+					<li><div class="picture"><p>好看的图片</p><img src="1.jpg"></div></li>
+					<li><div class="picture"><p>好看的图片</p><img src="1.jpg"></div></li>
+					<li><div class="picture"><p>好看的图片</p><img src="1.jpg"></div></li>
+					<li><div class="picture"><p>好看的图片</p><img src="1.jpg"></div></li>
+					<li><div class="picture"><p>好看的图片</p><img src="1.jpg"></div></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="article1">
+		<div>
+			<div class="context">
+				<h2>最后一篇文章一级标题</h2>
+				<h3>文章二级标题</h3>
+				<p>文章作者 文章发表时间</p>
+				<ol>
+					<li>排名1</li>
+					<li>排名2</li>
+					<li>排名3</li>
+				</ol>
+				<div>
+					<table class="table_1">
+						<tr>
+							<th>表头</th>
+							<th>表头</th>
+							<th>表头</th>
+						</tr>
+						<tr><td>表内容单元格</td><td>表内容单元格</td><td><a href="">操作</a></td></tr>
+						<tr><td>表内容单元格</td><td>表内容单元格</td><td><a href="">操作</a></td></tr>
+						<tr><td>表内容单元格</td><td>表内容单元格</td><td><a href="">操作</a></td></tr>
+						<tr><td>表内容单元格</td><td>表内容单元格</td><td><a href="">操作</a></td></tr>
+						<tr><td>总计</td><td colspan="2">1000</td></tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="article1">
+		<div>
+			<div class="context">
+				<span class="square"></span>
+				<h2 class="title">这里以后是一个侧栏，这是侧栏的标题</h2>
+				<form>
+					<table class="input_1">
+						<tr><td>请输入邮箱地址：</td><td><input type="text" name="输入框" placeholder="这是一个文本输入框" /></td></tr>
+						<tr><td></td><td style="padding: 15px 0px;color: grey;">邮箱地址请按要求格式输入</td></tr>
+						<tr><td>请输入密码：</td><td><input type="text" name="输入框" placeholder="这是一个文本输入框" /></td></tr>
+						<tr><td>请重复输入密码：</td><td><input type="text" name="输入框" placeholder="这是一个文本输入框" /></td></tr>
+						<tr><td></td><td style="color: grey;">密码请为6-16位英文数字</td></tr>
+						<tr><td>性别</td><td><input type="radio" name="sex" checked /><label for="male">男</label><input type="radio" name="sex" /><label for="female">女</label></td></tr>
+						<tr><td>城市</td><td><select>
+								<option value="beijing">北京</option>
+								<option value="shenzhen">深圳</option>
+								<option value="shanghai">上海</option>
+							</select></td></tr>	
+						<tr><td>爱好</td><td><input type="checkbox" name="hoppy" /><label for="sports">运动</label><input type="checkbox" name="hoppy" /><label for="arts">艺术</label><input type="checkbox" name="hoppy" /><label for="science">科学</label></td></tr>
+						<tr><td>个人描述</td><td><textarea placeholder="这是一个多行输入框，输入你的个人描述
+							"></textarea></td></tr>
+					</form>
+				</table>
+				<button type="submit">确认提交</button>
+					
+			</div>
+		</div>
+	</div>
+	<p>版权所有©</p>
+</body>
+</html>
