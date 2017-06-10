@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>通过HTML及CSS模拟报纸排版</title>
+	<style type="text/css">
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+		body{
+			background: black;
+		}
+		.main{
+			width: 980px;
+			height: 1386px;
+			margin: auto;
+			background: white;
+		}
+		.header{
+			width: 892px;
+			height: 61px;
+			margin: auto;
+		}
+		.header div:first-child div:first-child{
+			height: 61px;
+			width: 110px;
+			color: #fff;
+			font-size: 10px;
+			font-family: "黑体";
+			background: #d45d5c;
+			float: left;
+
+		}
+		.header div:first-child div:first-child p{
+			margin-top: 40px;
+		}
+		.header div:first-child div:nth-child(2){
+			float: right;
+			color: #d45d5c;
+			font-family: "黑体";
+			font-size: 10px;
+		}
+		.header div:first-child div:nth-child(2) p{
+			margin-top: 40px;
+		}
+		.div_hr{
+			border: 2px solid #938e8c;
+			width: 892px;
+			margin: auto;
+		}
+		.show_pic1{
+			margin-top: 24px;
+			width: 641px;
+			height: 301px;
+			float: left;
+		}
+		img{
+			display: block;
+		}
+		.show_left{
+			background: green;
+			opacity: 0.3;
+			height: 301px;
+			width: 191px;
+			float: left;
+			position: absolute;
+			margin-top: 0px;
+			transform: translate(0,-301px);
+		}
+		.show_right{
+			background: red;
+			opacity: 0.3;
+			height: 301px;
+			width: 191px;
+			float: right;
+			margin-top: 0px;
+			transform: translate(0,-301px);
+		}
+		.show_f1{
+			margin-top: 24px;
+			margin-left: 687px;
+			float: left;
+			width: 203px;
+			position: absolute;
+			font-family: "微软雅黑";
+			color: #cc8091;
+		}
+		.show_f1 hr{
+			border: 2px solid #cc8091;
+			width: 203px;
+			margin-bottom: 9px;
+		}
+		.right_a p{
+			height: 30px;
+			font-size: 24px;
+			border-bottom: 2px solid grey;
+			display: inline;
+		}
+		.right_a p span{
+			font-size: 18px;
+		}
+		.right_b{
+			font-size: 10px;
+			color: #676767;
+			font-family: "楷体";
+			display: block;
+		}
+		.right_c{
+			color: #75b86b;
+			font-size: 116px;
+			font-style: oblique;
+			margin-left: -20px;
+		}
+		.right_d{
+			font-size: 55px;
+			position: absolute;
+			margin-top: -20px;
+		}
+		.right_e{
+			font-size: 25px;
+			position: absolute;
+			margin-left: 80px;
+		}
+		.right_f{
+			font-size: 12px;
+			color: #676767;
+			position: absolute;
+			margin-left: 80px;
+			margin-top: 20px;
+		}
+		.show_f2{
+			margin-top: 30px;
+			position: relative;
+			float: left;
+		}
+		.f2_left1{
+			width: 230px;
+			height: 200px;
+			float: left;
+			font-size: 12px;
+			font-family: "宋体";
+			color: #767777;
+			line-height: 16px;
+		}
+		.f2_left1 p span{
+			display: inline-block;
+			margin-bottom: 10px;
+			font-size: 16px;
+			font-family: "微软雅黑";
+			color: #418c59;
+			border-bottom: 2px solid #418c59;
+			font-weight: bold;
+		}
+		.f2_left2{
+			width: 230px;
+			height: 200px;
+			position: absolute;
+			margin-left: 254px; 
+			font-size: 12px;
+			font-family: "宋体";
+			color: #767777;
+			line-height: 16px;
+		}
+		.f2_left2 p span{
+			display: inline-block;
+			margin-bottom: 10px;
+			font-size: 16px;
+			font-family: "微软雅黑";
+			color: #d2994f;
+			border-bottom: 2px solid #d2994f;
+			font-weight: bold;
+		}
+		.f2_left3{
+			width: 140px;
+			height: 80px;
+			position: absolute;
+			margin-left: 508px; 
+			font-size: 12px;
+			font-family: "宋体";
+			color: #767777;
+			line-height: 20px;
+		}
+		.f2_left3 p span{
+			display: inline-block;
+			margin-bottom: 10px;
+			font-size: 16px;
+			font-family: "微软雅黑";
+			color: #cc7680;
+			border-bottom: 2px solid #cc6780;
+			font-weight: bold;
+		}
+		.f2_left4{
+			width: 140px;
+			height: 80px;
+			margin-left: 508px; 
+			margin-top: 104px;
+			font-size: 12px;
+			font-family: "微软雅黑";
+			color: #767777;
+			line-height: 16px;
+		}
+		.f2_left4 p span{
+			display: inline-block;
+			margin-bottom: 10px;
+			font-size: 16px;
+			font-family: "微软雅黑";
+			color: #cc4a48;
+			font-style: oblique;
+			opacity: 0.7;
+		}
+		.show_f3{
+			width: 420px;
+			height: 160px;
+			position: relative;
+			float: left;
+			margin-top: 30px;
+		}
+		.f3_left1{
+			font-family: "黑体";
+			font-weight: bold;
+			border-bottom: 2px solid black;
+			margin-bottom: 25px;
+		}
+		.the{
+			font-size: 72px;
+			color: #f5e327;
+			font-style: oblique;
+		}
+		.front{
+			font-size: 42px;
+			color: #11456b;
+			line-height: 16px;
+		}
+		.html1{
+			color: #11456b;
+			font-size: 33px;
+		}
+		.f3_left2{
+			font-size: 10px;
+			color: #767777;
+			font-family: "宋体";
+			line-height: 16px;
+		}
+		.f3_le2_p1:first-letter{
+			font-size: 70px;
+			color: #f5e327;
+			font-family: "微软雅黑";
+			position: absolute;
+			float: left;
+			margin: 25px 15px 25px 5px;
+		}
+		.pic_3{
+			display: block;
+			float: right;
+			margin: 14px 0 7px 10px;;
+		}
+		.f3_left2 p:nth-child(3),.f3_left2 p:nth-child(4){
+			text-indent: 2em;
+		}
+		.show_pic2{
+			float: right;
+			position: absolute;
+			margin-left: 435px;
+			margin-top: 50px;
+		}
+		.back{
+			width: 458px;
+			height: 275px;
+			background: url("picture_pc2.jpg");
+		}
+		.pic_f{
+			height: 61px;
+			width: 458px;
+			background: rgba(130,130,130,0.3);
+			margin-top: -40px;
+		}
+		.pic_f span{
+			display: block;
+			height: 44px;
+			width: 3px;
+			background: #72b16a;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="header">
+			<div>
+				<div><p>ife.baidu.com</p></div>
+				<div><p>2016.03</p></div>
+				<hr class="div_hr" />
+				<div class="show_pic1">
+					<img src="picture_pc.jpg" />
+					<div class="show_left"></div>
+					<div class="show_right"></div>
+				</div>
+			</div>
+		<div class="show_f1"><hr />
+			<div class="right_a"><p>A<span>BOUT</span></p></div>
+			<div class="right_a"><p>T<span>ECHNOLOGE</span></p></div>
+			<div class="right_b">About technology about technology about technology</div>
+			<div class="right_c">700</div>
+			<div class="right_d">3.2</div>
+			<div class="right_e">css</div>
+			<div class="right_f">cssssccsccscssc</div>
+		</div>
+		<div style="clear: both;"></div>
+		<div class="show_f2">
+			<div class="f2_left1"><p><span>What</span></p>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</div>
+			<div class="f2_left2"><p><span>When</span></p>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</div>
+			<div class="f2_left3"><p><span>How</span></p>前端前端前端前端前端前端前端前端前端前端前端前端</div>
+			<div class="f2_left4"><p>What--------<span>40%</span></p><p>What--------<span>30%</span></p><p>What--------<span>30%</span></p></div>
+		</div>
+		<div style="clear: both;"></div>
+		<div class="show_f3">
+			<div class="f3_left1"><p><span class="the">THE</span> <span class="front">TECHNOLOGE OF FRONT</span></p><p><span class="html1">前端技术领域</span></p></div>
+			<div class="f3_left2"><p class="f3_le2_p1">前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p><div class="pic_3"><img src="picture_pc3.jpg" /></div><p>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p><p>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p></div>
+		</div>
+		<div class="show_pic2">
+				<div class="back"></div>
+				<div class="pic_f"><span></span><p>前端技术</p><p>前端技术前端技术</p></div>
+			
+		</div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		</div>
+	</div>
+</body>
+</html>
