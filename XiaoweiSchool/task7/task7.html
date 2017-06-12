@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>实现常见的技术产品官网的页面架构及样式布局</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		a{
+			text-decoration: none;
+			color: #8e9197;
+		}
+		header{
+			height: 56px;
+			background: white;
+		}
+		.head{
+			float: left;
+			margin-left: 55px; 
+		}
+		.head img{
+			margin-top: 10px;
+		}
+		.head p{
+			display: inline-block;
+			position: absolute;
+			margin-top: 13px;
+			margin-left: 5px;
+			font-size: 26px; 
+		}
+		.login{
+			float: right;
+			margin-right: 10px;
+			margin-top: 15px;
+		}
+		.login span{
+			margin-right: 10px;
+		}
+		ul{
+			overflow: hidden;
+			float: right;
+			height: 56px;
+		}
+		ul li{
+			width: 110px;
+			text-align: center;
+			margin-top: 13px;
+			display: inline-block;
+		}
+		ul li:nth-child(1):hover{
+			left: 0px;
+		}
+		ul li:nth-child(2):hover{
+			left: 110px;
+		}
+		ul li:nth-child(3):hover{
+			left: 220px;
+		}
+		ul li:nth-child(4):hover{
+			left: 330px;
+		}
+		ul li:nth-child(5):hover{
+			left: 440px;
+		}
+		.list_bottom{
+			float: left;
+			position: absolute;
+			border-bottom: 4px solid #ea6f6e;
+			-webkit-transation: left .2s ease-in-out;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="head"><span><img src="site-pic.png"></span><p>New Life</p></div>
+		<div class="login"><span><img src="login-icon.jpg"></span><a href="#">Login</a></div>
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Activity</a></li>
+			<li><a href="#">Introduce</a></li>
+			<li><a href="#">Forum</a></li>
+			<li><a href="#">About</a></li>
+			<li class="list_bottom"></li>
+		</ul>
+	</header>
+	<div></div>
+</body>
+</html>
