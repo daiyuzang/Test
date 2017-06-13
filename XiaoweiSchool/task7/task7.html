@@ -32,50 +32,75 @@
 		}
 		.login{
 			float: right;
-			margin-right: 10px;
 			margin-top: 15px;
 		}
 		.login span{
 			margin-right: 10px;
 		}
 		ul{
-			overflow: hidden;
+			list-style: none;
 			float: right;
+			position: relative;
 			height: 56px;
+			width: 550px;
+			left: 0;
+			right: 0;
 		}
 		ul li{
 			width: 110px;
 			text-align: center;
 			margin-top: 13px;
-			display: inline-block;
-		}
-		ul li:nth-child(1):hover{
-			left: 0px;
-		}
-		ul li:nth-child(2):hover{
-			left: 110px;
-		}
-		ul li:nth-child(3):hover{
-			left: 220px;
-		}
-		ul li:nth-child(4):hover{
-			left: 330px;
-		}
-		ul li:nth-child(5):hover{
-			left: 440px;
+			float: left;
 		}
 		.list_bottom{
 			float: left;
+			left: 0;
+			margin-top: 52px;
 			position: absolute;
 			border-bottom: 4px solid #ea6f6e;
-			-webkit-transation: left .2s ease-in-out;
+			transition: left .2s;
+			transition-timing-function: ease-in-out;
+		}
+		.login{
+			margin-right: 20px;
+			margin-left: 30px;
+		}
+		.login_bottom{
+			margin-left: 23px;
+			position: absolute;
+			border-top: 2px solid #EA6F6E;
+			width: 0px;
+			height: 20px;
+			transition: width 0.2s linear;
+		}
+		.login a:hover~ .login_bottom{
+			width: 60px;
+		}
+		ul li:nth-child(1):hover~ .list_bottom{
+			left: 0;
+		}
+		ul li:nth-child(2):hover~ .list_bottom{
+			left: 110px;
+		}
+		ul li:nth-child(3):hover~ .list_bottom{
+			left: 220px;
+		}
+		ul li:nth-child(4):hover~ .list_bottom{
+			left: 330px;
+		}
+		ul li:nth-child(5):hover~ .list_bottom{
+			left: 440px;
+		}
+		.main{
+			height: 690px;
+			background: url("firstPart.jpg") no-repeat;
 		}
 	</style>
 </head>
 <body>
 	<header>
 		<div class="head"><span><img src="site-pic.png"></span><p>New Life</p></div>
-		<div class="login"><span><img src="login-icon.jpg"></span><a href="#">Login</a></div>
+		<div class="login"><span><img src="login-icon.jpg"></span><a href="#">Login</a><div class="login_bottom"></div></div>
 		<ul>
 			<li><a href="#">Home</a></li>
 			<li><a href="#">Activity</a></li>
@@ -85,6 +110,11 @@
 			<li class="list_bottom"></li>
 		</ul>
 	</header>
-	<div></div>
+	<div class="main">
+		<div class="show_f1">Time of new life</div>
+		<div class="show_f2">新时代，年轻的人们让我们一起</div>
+		<div class="show_f3">体验新生活，享受新生活</div>
+		<div><button class="experience">开始体验</button></div>
+	</div>
 </body>
 </html>
