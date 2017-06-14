@@ -94,6 +94,45 @@
 		.main{
 			height: 690px;
 			background: url("firstPart.jpg") no-repeat;
+			background-size: cover;
+			color: white;
+		}
+		.box{
+			padding: 225px 0 0 113px;
+			font: normal 21px "微软雅黑";
+		}
+		.show_f1 p{
+			font-size: 60px;
+			font-weight: 10;
+		}
+		.show_f2{
+			line-height: 27px;
+		}
+		.experience{
+			width: 290px;
+			height: 70px;
+			margin-top: 20px;
+			font: normal 30px "微软雅黑";
+			border: 0;
+			background: #e74f4d;
+			cursor: pointer;
+			color: white;
+			transition: all 0.2s ease-in;
+		}
+		.experience:hover{
+			background: #fff;
+			color: #e74f4d;
+		}
+		.icon_all{
+			height: 250px;
+			font-size: 0;
+		}
+		.icon{
+			width: 25%;
+			padding: 40px 0 40px 0;
+			text-align: center;
+			margin: auto;
+			display: inline-block;
 		}
 	</style>
 </head>
@@ -111,10 +150,18 @@
 		</ul>
 	</header>
 	<div class="main">
-		<div class="show_f1">Time of new life</div>
-		<div class="show_f2">新时代，年轻的人们让我们一起</div>
-		<div class="show_f3">体验新生活，享受新生活</div>
-		<div><button class="experience">开始体验</button></div>
+		<div class="box">
+			<div class="show_f1"><p>Time of new life</p></div>
+			<div class="show_f2">新时代，年轻的人们让我们一起</div>
+			<div>体验新生活，享受新生活</div>
+			<div><button class="experience">开始体验</button></div>
+		</div>
+	</div>
+	<div class="icon_all">
+		<figure class="icon"><img src="icon-1.jpg"><p></p></figure>
+		<figure class="icon"><img src="icon-2.jpg"><p></p></figure>
+		<figure class="icon"><img src="icon-3.jpg"><p></p></figure>
+		<figure class="icon"><img src="icon-4.jpg"><p></p></figure>
 	</div>
 </body>
 </html>
