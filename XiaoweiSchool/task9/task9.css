@@ -1,0 +1,247 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+.header {
+  height: 55px;
+  width: 100%;
+  background: #2189BF;
+}
+.header .logo {
+  padding: 10px;
+  margin-left: 50px;
+}
+.header .search-login {
+  float: right;
+  margin-top: -50px;
+}
+.header .search-login .search {
+  margin-right: 180px;
+  position: relative;
+}
+.header .search-login .search input {
+  width: 320px;
+  height: 25px;
+  border: none;
+  font-size: 16px;
+  line-height: 20px;
+  border-radius: 15px;
+}
+.header .search-login .search img {
+  position: absolute;
+  top: 7px;
+  left: 15px;
+}
+.header .search-login .head {
+  display: inline-block;
+  float: right;
+  margin-right: 130px;
+  margin-top: -20px;
+}
+.header .search-login p {
+  float: right;
+  color: white;
+  margin-top: -22px;
+  margin-right: 80px;
+  font-size: 13px;
+}
+.wapper .navbar {
+  color: #AFB0B4;
+  float: left;
+  width: 260px;
+  background: #2A2E3D;
+  font-size: 15px;
+}
+.wapper .navbar .name .photo img {
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+.wapper .navbar .name .photo p {
+  display: inline-block;
+  float: right;
+  margin-top: 40px;
+  margin-right: 40px;
+  cursor: pointer;
+}
+.wapper .navbar .name .photo p:hover {
+  color: white;
+  font-weight: bold;
+}
+.wapper .navbar .name .wapper-cf {
+  background: #2A2E3D;
+  height: 80px;
+  width: 260px;
+}
+.wapper .navbar .name .wapper-cf .collected {
+  float: left;
+  margin-top: 20px;
+  width: 100px;
+  margin-bottom: 20px;
+  border-right: 2px solid #444A65;
+  box-sizing: border-box;
+}
+.wapper .navbar .name .wapper-cf .collected p {
+  text-align: center;
+  cursor: pointer;
+}
+.wapper .navbar .name .wapper-cf .collected p:hover {
+  color: white;
+  font-weight: bold;
+}
+.wapper .navbar .name .wapper-cf .fans {
+  width: 160px;
+  float: right;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.wapper .navbar .name .wapper-cf .fans p {
+  text-align: center;
+  cursor: pointer;
+}
+.wapper .navbar .name .wapper-cf .fans p:hover {
+  color: white;
+  font-weight: bold;
+}
+.wapper .navbar .report-forms {
+  background: #383D4E;
+  padding-left: 25px;
+  cursor: pointer;
+}
+.wapper .navbar .report-forms .title p {
+  display: inline-block;
+  margin-left: 10px;
+}
+.wapper .navbar .report-forms .documents {
+  padding-left: 38px;
+}
+.wapper .navbar .report-forms .documents .doc {
+  margin-top: 15px;
+}
+.wapper .navbar .report-forms .documents .doc p {
+  display: inline-block;
+  margin-left: 10px;
+}
+.wapper .navbar .report-forms .documents .doc .doc1 {
+  margin-top: 15px;
+  margin-left: 30px;
+}
+.wapper .navbar .report-forms .documents .doc .doc1 p {
+  margin-left: 10px;
+}
+.wapper .navbar .wapper-msg {
+  cursor: pointer;
+}
+.wapper .navbar .wapper-msg .personal-msg img {
+  padding-left: 28px;
+}
+.wapper .navbar .wapper-msg .personal-msg p {
+  padding-left: 8px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+.wapper .navbar .wapper-msg .personal-msg:hover {
+  background-color: #383D4E;
+}
+.wapper .contain {
+  float: right;
+  width: 1089px;
+  margin-left: 260px;
+  margin-top: -534px;
+  background: #EEEEED;
+}
+.wapper .contain .title {
+  padding-left: 25px;
+  background-color: white;
+  font-family: simhei;
+  color: #383D4E;
+}
+.wapper .contain .search-item {
+  width: 890px;
+  margin: auto;
+  height: 84px;
+  background: white;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #D3D3D3;
+  color: #B7B7BE;
+  font-size: 14px;
+  font-family: simhei;
+}
+.wapper .contain .search-item .item {
+  float: left;
+  padding-left: 30px;
+  padding-top: 20px;
+}
+.wapper .contain .search-item .item select {
+  float: left;
+  -webkit-appearance: none;
+  margin-left: 60px;
+  margin-top: -20px;
+  height: 30px;
+  padding: 0 15px;
+  background-color: white;
+  background: url("img/blue-arrow.gif") right no-repeat;
+}
+.wapper .contain .search-item .buy-sell {
+  float: left;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.wapper .contain .search-item .buy-sell .buy select {
+  float: left;
+  -webkit-appearance: none;
+  margin-left: 40px;
+  margin-top: -25px;
+  height: 30px;
+  width: 120px;
+  padding: 0 15px;
+  background-color: white;
+  background: url("img/black-arrow.gif") right no-repeat;
+}
+.wapper .contain .search-item .buy-sell .sell p {
+  padding-top: 13px;
+}
+.wapper .contain .search-item .buy-sell .sell select {
+  float: left;
+  -webkit-appearance: none;
+  margin-left: 40px;
+  margin-top: -25px;
+  height: 30px;
+  width: 120px;
+  padding: 0 15px;
+  background-color: white;
+  background: url("img/black-arrow.gif") right no-repeat;
+}
+.wapper .contain .search-item .change {
+  margin-top: 20px;
+  margin-left: -2px;
+  float: left;
+}
+.wapper .contain .search-item .date-number {
+  float: left;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.wapper .contain .search-item .date-number .date input {
+  float: left;
+  margin-left: 40px;
+  margin-top: -25px;
+  height: 30px;
+  width: 120px;
+  padding: 0 15px;
+  width: 140px;
+}
+.wapper .contain .search-item .date-number .number select {
+  float: left;
+  -webkit-appearance: none;
+  margin-left: 40px;
+  margin-top: -19px;
+  height: 30px;
+  width: 120px;
+  padding: 0 15px;
+  background-color: white;
+  background: url("img/black-arrow.gif") right no-repeat;
+}
+/*# sourceMappingURL=task9.css.map */
