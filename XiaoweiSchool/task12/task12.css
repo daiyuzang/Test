@@ -1,0 +1,136 @@
+@keyframes transition1 {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes transition2 {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@keyframes transition3 {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+.wapper {
+  width: 25%;
+  margin: auto;
+}
+.wapper table {
+  width: 100%;
+}
+.wapper table tr th {
+  text-align: left;
+  color: white;
+  background: black;
+}
+.wapper table tr:nth-child(2) {
+  color: red;
+}
+.wapper table tr:nth-child(3) {
+  color: red;
+}
+.wapper table tr:nth-child(4) {
+  color: red;
+}
+.wapper table tr:nth-of-type(2n + 1) {
+  background: #CDCDCD;
+}
+.wapper .box {
+  text-align: center;
+}
+.wapper .box input {
+  margin-top: 40px;
+  width: 100px;
+  transition: width .5s;
+}
+.wapper .box input:focus {
+  width: 200px;
+}
+.wapper .canvas {
+  width: 400px;
+  height: 200px;
+  background: green;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+.wapper .canvas ul {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.wapper .canvas ul li {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.wapper .canvas ul .side1 {
+  background: green;
+}
+.wapper .canvas ul .side2 {
+  background: red;
+}
+.wapper .canvas ul .side3 {
+  background: blue;
+}
+.wapper .canvas .one {
+  cursor: pointer;
+  text-align: center;
+  position: absolute;
+  margin-right: 100px;
+  right: 0px;
+  bottom: 0px;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  background: #7DC17E;
+}
+.wapper .canvas .one:hover ~ .side2 {
+  animation: transition1 0.5s ease-out forwards;
+}
+.wapper .canvas .two {
+  cursor: pointer;
+  text-align: center;
+  position: absolute;
+  margin-right: 50px;
+  right: 0px;
+  bottom: 0px;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  background: #7DC17E;
+}
+.wapper .canvas .two:hover ~ .canvas {
+  animation: transition2 0.5s ease-out forwards;
+}
+.wapper .canvas .three {
+  cursor: pointer;
+  text-align: center;
+  position: absolute;
+  margin-right: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  background: #7DC17E;
+}
+.wapper .canvas .three:hover ~ .canvas {
+  animation: transition3 0.5s ease-out forwards;
+}
+/*# sourceMappingURL=task12.css.map */
