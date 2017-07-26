@@ -1,6 +1,30 @@
 var inputValue = document.getElementsByClassName("value");
 var name = document.getElementsByClassName("name");
 var reminder = document.getElementsByClassName("reminder");
+var btn = document.getElementById("submit");
+btn.onclick = function(){
+	for (var i = 0; i < name.length; i++) {
+		(function(i){
+			if (inputValue[i].value == "") {
+				reminder[i].innerHTML = wrongMsg(i);
+				reminder[i].style.color = "red";
+				inputValue[i].style.borderColor = "red";
+			}else{
+				reminder[i].innerHTML = RegexMatch(i,inputValue[i].value);
+				if (reminder[i].innerHTML == "格式正确") {
+					reminder[i].style.color = "green";
+					inputValue[i].style.borderColor = "green";
+				}
+				else{
+					reminder[i].style.color = "red";
+					inputValue[i].style.borderColor = "red";
+				}
+			}
+		})(i);
+	}
+}
+
+
 for(var j = 0; j < name.length; j++){
 	(function(i){
 		inputValue[i].onfocus = function(){
@@ -28,7 +52,8 @@ for(var j = 0; j < name.length; j++){
 			}
 		}
 	})(j);
-} 
+}
+
 
 function reminderMsg(num){
 	switch(num){
