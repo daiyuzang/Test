@@ -1,0 +1,18 @@
+.wapper {
+  width: 300px;
+  margin: auto;
+}
+.wapper form #select {
+  margin-top: 20px;
+}
+.wapper form #select select {
+  height: 25px;
+}
+.wapper form #select .hidden {
+  display: none;
+}
+.wapper form #job {
+  margin-top: 20px;
+  display: none;
+}
+/*# sourceMappingURL=task3.css.map */
