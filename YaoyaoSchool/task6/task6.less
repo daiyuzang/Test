@@ -1,20 +1,33 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
 #wapper{
 	width: 100%;
 	height: 1000px;
+	position: relative;
+	.display{
+		background: #7F7F7F;
+		width:inherit;
+		height:inherit;
+		position: absolute;
+		z-index: 2;
+		opacity: 0.8;
+	}
 	#layer{
-		display: none;
 		position: fixed;
 		top: 50%;
 		left: 50%;
-		margin-top: -120px;
-		margin-left: -220px;
+		z-index: 3;
+		transform: translate(-50%,-50%);
 		height: 240px;
 		width: 440px;
+		cursor: move;
 		background: #EEEEEE;
 		h5{
 			color: white;
 			font-size: 24px;
-			background: #999999;
+			background: #555;
 			margin: 0px;
 			padding: 10px 0;
 		}
@@ -34,6 +47,13 @@
 		}
 	}
 	#btn-out{
+		position: absolute;
+		z-index: 1;
+		color: white;
+		border: none;
+		height: 25px;
+		width: 100px;
+		background: #999999;
 		margin-top: 400px;
 		margin-left: 50%;
 	}
