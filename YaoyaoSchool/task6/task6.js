@@ -3,6 +3,11 @@ var layer = document.getElementById("layer");
 var btn = document.getElementById("btn-out");
 var ensure = document.getElementById("ensure");
 var cancle = document.getElementById("cancle");
+var leftBorder = document.getElementById("left-border");
+var rightBorder = document.getElementById("right-border");
+var topBorder = document.getElementById("top-border");
+var bottomBorder = document.getElementById("bottom-border");
+
 
 function layerOut(){
 	layer.style.display = "block";
@@ -68,6 +73,57 @@ function drag(target) {//必须先让layer显示，否则得不到left和top的�
 	}
 
 }
+var parambox = {
+	left: 0,
+	top: 0,
+	height: 0,
+	width: 0
+};
+var params = {
+	left: 0,
+	top: 0,
+	currentX: 0,
+	currentY: 0,
+	flag: false
+};
+
+function resizeLayer(box,target){
+	parambox.left = getCss(box,"left");
+	parambox.width = getCss(box,"width");
+	params.left = getCss(target,"left");
+
+	target.onmousedown = function(event){
+		params.flag = true;
+
+		event.preventDefault();
+		params.currentX = event.clientX;
+	}
+
+	target.onmousemove = function(event){
+			if(params.flag){
+				var nowX = event.clientX;
+
+				var distinctX = params.currentX - nowX;
+				console.log(distinctX);
+				console.log(params.left);
+				target.style.left = parseInt(params.left) + distinctX + "px";
+				box.style.width = parseInt(parambox.width) + distinctX + "px";
+				box.style.left = parseInt(params.left) + distinctX + "px";
+				console.log(target.style.left);
+				console.log(box.style.left);
+			}
+		}
+
+	target.onmouseup = function(event){
+		params.flag = false;
+		params.left = getCss(target,"left");
+		parambox.left = getCss(box,"left");
+		parambox.width = getCss(box,"width");
+	}
+
+	
+}
+
 
 btn.onclick = layerOut;
 ensure.onclick = closeLayer;
@@ -75,3 +131,4 @@ cancle.onclick = closeLayer;
 display.onclick = closeLayer;
 
 drag(layer);
+resizeLayer(layer,leftBorder);
