@@ -26,6 +26,40 @@
   cursor: move;
   background: #EEEEEE;
 }
+#wapper #layer .left-border {
+  height: inherit;
+  width: 5px;
+  background: red;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  cursor: e-resize;
+}
+#wapper #layer .right-border {
+  height: inherit;
+  width: 5px;
+  background: red;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  cursor: w-resize;
+}
+#wapper #layer .top-border {
+  height: 5px;
+  width: inherit;
+  background: red;
+  position: absolute;
+  top: 0px;
+  cursor: s-resize;
+}
+#wapper #layer .bottom-border {
+  height: 5px;
+  width: inherit;
+  background: red;
+  position: absolute;
+  bottom: 0px;
+  cursor: n-resize;
+}
 #wapper #layer h5 {
   color: white;
   font-size: 24px;
