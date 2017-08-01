@@ -54,6 +54,7 @@ function drag(target) {//必须先让layer显示，否则得不到left和top的�
 		param.left = getCss(target, "left");
 		//console.log(param.left);
 		param.top = getCss(target, "top");
+		console.log("ddd");
 	};
 	//鼠标移动
 	target.onmousemove = function(evt){
@@ -90,37 +91,47 @@ var params = {
 function resizeLayer(box,target){
 	parambox.left = getCss(box,"left");
 	parambox.width = getCss(box,"width");
-	params.left = getCss(target,"left");
+	//params.left = getCss(box,"left");
 
+	//console.log(target.offsetTop);
 	target.onmousedown = function(event){
-		params.flag = true;
+		params.flag = true;//console.log(params.flag);
 
 		event.preventDefault();
 		params.currentX = event.clientX;
-	}
 
-	target.onmousemove = function(event){
-			if(params.flag){
+		target.onmousemove = function(event){
+			if (params.flag) {
 				var nowX = event.clientX;
 
-				var distinctX = params.currentX - nowX;
-				console.log(distinctX);
-				console.log(params.left);
-				target.style.left = parseInt(params.left) + distinctX + "px";
-				box.style.width = parseInt(parambox.width) + distinctX + "px";
-				box.style.left = parseInt(params.left) + distinctX + "px";
-				console.log(target.style.left);
-				console.log(box.style.left);
+				var distinctX = nowX - params.currentX;
+				//console.log(distinctX);
+				box.style.left = parseInt(parambox.left) + distinctX + "px";
+				box.style.width = parseInt(parambox.width) - distinctX + "px";
+				
+				//console.log(target.style.left);
+				//console.log(box.style.left);
+				//params.flag = false;
+				parambox.left = getCss(box,"left");
+				parambox.width = getCss(box,"width");
+				
 			}
-		}
+			
+		};
+		//bug 检测不到mouseup
+		target.onmouseup = function(event){
+				//console.log(params.flag);
+				params.flag = false;
+				document.onmousemove = null;
+				document.onmouseup = null; 
+				//target.releaseCapture && target.releaseCapture()
+			};
+		
+	};
 
-	target.onmouseup = function(event){
-		params.flag = false;
-		params.left = getCss(target,"left");
-		parambox.left = getCss(box,"left");
-		parambox.width = getCss(box,"width");
-	}
+	
 
+	
 	
 }
 
@@ -132,3 +143,4 @@ display.onclick = closeLayer;
 
 drag(layer);
 resizeLayer(layer,leftBorder);
+
