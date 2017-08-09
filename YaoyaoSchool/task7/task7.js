@@ -21,11 +21,9 @@ for(var i = 1; i < trs.length; i++){
 }
 
 function high2low(data){
-	data.sort(function(value1, value2){
-		return value1 - value2;
-	});
+	//排序
 }
 
 chnl2hBtn.onclick = function(){
-
+//"hhhh"
 }
